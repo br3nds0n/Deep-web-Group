@@ -1,7 +1,7 @@
 const express = require('express');
 
 const routes = require('./routes');
-require('./infra/database/mongo/index.js');
+require('./infra/database/mongo');
 
 class App {
 	constructor() {
@@ -20,4 +20,4 @@ class App {
 	}
 }
 
-module.exports = new App.server();
+module.exports = new App().server;
