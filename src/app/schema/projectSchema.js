@@ -21,7 +21,8 @@ const projectSchema = mongoose.Schema({
     
 	task : {
         type: Array,
-        required: true
+        required: true,
+        timestamps: true
     }
 },
 );
