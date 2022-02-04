@@ -7,8 +7,7 @@ class Database {
 	}
 
 	connect () {
-		return mongoose
-			.connect(process.env.DB_HOST)
+		return mongoose.connect(process.env.DB_PATH)
 			.catch((error) => console.log(error));
 	}
 }
