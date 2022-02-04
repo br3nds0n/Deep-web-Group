@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 const mongoose = require('mongoose');
-
+const mongoosePaginate = require('mongoose-paginate-v2');
 const projectSchema = mongoose.Schema({
 	title: {
 		type: String,
@@ -32,6 +32,7 @@ projectSchema.method('toJSON', function () {
     Project.__v = undefined;
 	return Project;
 });
+projectSchema.plugin(mongoosePaginate);
 
 const Project = mongoose.model('Projects', projectSchema);
 module.exports = Project;
