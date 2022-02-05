@@ -17,13 +17,13 @@ class ProjectRepository {
 			meta: false,
 			hasPrevPage: false,
 			hasNextPage: false
-		  };
-		  const options = {
+		};
+		const options = {
 			page: 1,
 			limit: 100,
 			customLabels: myCustomLabels
-		  };
-		  return schema.paginate(payload,options,{});
+		};
+		return schema.paginate(payload,options,{});
 	}
 	
 }

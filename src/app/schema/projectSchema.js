@@ -1,4 +1,4 @@
-/* eslint-disable indent */
+
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate-v2');
 const projectSchema = mongoose.Schema({
@@ -11,21 +11,21 @@ const projectSchema = mongoose.Schema({
 		required: true
 	},
 	task : [{
-        title : { type:String,required:true},
-        taskRelevance :{ type:Number,required:true},
-        completed :{ type:Boolean,required:true},
-        createdAt:{type:Date,default:Date.now
-        },
-        updatedAt:{type:Date,default:Date.now
-        },
-        _id:false
-         },] 
+		title : { type:String,required:true},
+		taskRelevance :{ type:Number,required:true},
+		completed :{ type:Boolean,required:true},
+		createdAt:{type:Date,default:Date.now
+		},
+		updatedAt:{type:Date,default:Date.now
+		},
+		_id:false
+	},] 
 },
 { timestamps: true });
 
 projectSchema.method('toJSON', function () {
 	const { ...Project } = this.toObject();
-    Project.__v = undefined;
+	Project.__v = undefined;
 	return Project;
 });
 projectSchema.plugin(mongoosePaginate);
