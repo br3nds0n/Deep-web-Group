@@ -1,7 +1,7 @@
 const supertest = require('supertest');
 const mongoose = require('mongoose');
 
-const App = require('../../src/app.js');
+const App = require('../database');
 const projectService = require('../../src/app/service/ProjectService.js');
 
 const project = {};
