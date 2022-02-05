@@ -1,5 +1,7 @@
 const Joi = require('joi');
 
+const BadRequest = require('../../errors/http/BadRequest');
+
 module.exports = async (req, res, next) => {
 	try {
 		const schema = Joi.object({
@@ -32,10 +34,12 @@ module.exports = async (req, res, next) => {
 			allowUnknown: false,
 		});
 
-		if (error) throw error;
-		return next();
-    
+		if (error) {
+			throw new BadRequest({ details: error.details.map(err => err.message) });
+		}
+
+		next();
 	} catch (error) {
-		return res.status(400).json(error);
+		next(error);
 	}
 };
