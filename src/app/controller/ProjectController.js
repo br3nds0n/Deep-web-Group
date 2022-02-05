@@ -26,14 +26,27 @@ class ProjectController {
 		try {
 			const result = await ProjectService.findById(id);
 			if (!result) {
-				return res.status(400).json('Not found');
+				return res.status(404).json('Not found');
 			}
 			return res.status(200).json(result);			
 		} catch (error) {
 			return res.status(500).json(error); 
 		}
 	}
-}
 
+	async delete (req, res) {
+		try {
+			const { id } = req.params;
+			const result = await ProjectService.findById({ _id: id });	
+			if (!result) {
+				return res.status(404).json('Not found');
+			}
+			await ProjectService.delete({ _id: id });
+			return res.status(204).json();			
+		} catch (error) {
+			return res.status(500).json(error);
+		}
+	}	
+}
 
 module.exports = new ProjectController();

@@ -8,14 +8,19 @@ class ProjectService {
 	}
 
 	async findAll(payload) {
-		const data = await ProjectRepository.findAll(payload);
-		return data;
+		const result = await ProjectRepository.findAll(payload);
+		return result;
 	}
 
 	async findById (id) {
 		const result = await ProjectRepository.findById(id);
 		return result;
 	}
+	
+	async delete(id) {
+		const result = await ProjectRepository.delete(id);
+		return result;
+	}	
 }
 
 module.exports = new ProjectService();

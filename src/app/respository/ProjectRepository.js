@@ -28,6 +28,9 @@ class ProjectRepository {
 	async findById (id) {
 		return schema.findById(id);
 	}
+	async delete(id) {
+		return schema.deleteOne({ _id: id });
+	}		
 }
 
 module.exports = new ProjectRepository();
