@@ -122,7 +122,8 @@ $ npm run test
 # Será rodado os testes de feature no terminal
 ```
 > Resultado esperado:
-<img src="https://user-images.githubusercontent.com/82064724/152653882-e9696e77-4059-440c-b27c-2f3670a4d9bf.png">
+
+![img](https://user-images.githubusercontent.com/82064724/152654924-8f9ccee3-2c0a-4937-bea2-61b73f27f80f.png)
 
 <br>
 
