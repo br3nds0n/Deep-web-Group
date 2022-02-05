@@ -34,6 +34,21 @@ class ProjectController {
 		}
 	}
 
+	async update(req, res) {
+		const { id } = req.params;
+		const data = req.body;	
+		try {
+			const project = await ProjectService.findById(id);
+			if (!project) {
+				return res.status(404).json('Not found');
+			}			
+			const result = await ProjectService.update(id, data);
+			res.status(200).json(result);
+		} catch (error) {
+			return res.status(500).json(error); 		
+		}	
+	}	
+
 	async delete (req, res) {
 		try {
 			const { id } = req.params;

@@ -7,6 +7,7 @@ router
 	.post('/project',projectValidation, ProjectController.create)
 	.get('/project', ProjectController.findAll)
 	.get('/project/:id', ProjectController.findById )
+	.put('/project/:id', ProjectController.update)
 	.delete('/project/:id', ProjectController.delete);
 
 module.exports = router;
