@@ -42,13 +42,13 @@ describe('Test-Feature-project', () => {
 		expect(res.statusCode).toBe(200);
 	});
 
-	// it('GET/:id /api/v1/project/:id', async ()=> {
-	// 	const res = await supertest(App)
-	// 		.get(`/api/v1/project/${project.p1._id}`);
+	it('GET/:id /api/v1/project/:id', async ()=> {
+		const res = await supertest(App)
+			.get(`/api/v1/project/${project.p1._id}`);
 
-	// 	expect(res.statusCode).toBe(200);
-	// 	expect(res.body.modelo).toBe('GM S10 2.8');
-	// });
+		expect(res.statusCode).toBe(200);
+		expect(res.body.title).toBe('controle de estoque');
+	});
 
 	it('POST /api/v1/project', async ()=> {
 		const res = await supertest(App)
@@ -76,27 +76,36 @@ describe('Test-Feature-project', () => {
 		expect(res.statusCode).toBe(201);
 	});
 
-	// it('PUT /api/v1/project/:id', async ()=>{
-	// 	const res = await supertest(App)
-	// 		.put(`/api/v1/project/${project.p1._id}`)
-	// 		.send({
-	// 			modelo: 'ferrari de Giovanni',
-	// 			cor: 'preta',
-	// 			ano: '2021',
-	// 			acessorios: [
-	// 				{ descricao: 'Ar-condicionado' },
-	// 				{ descricao: 'Dir. Hidráulica' },
-	// 			],
-	// 			quantidadePassageiros: 5
-	// 		});
-	// 	expect(res.statusCode).toBe(200);
-	// 	expect(res.body.modelo).toBe('ferrari de Giovanni');
-	// });
+	it('PUT /api/v1/project/:id', async ()=>{
+		const res = await supertest(App)
+			.put(`/api/v1/project/${project.p1._id}`)
+			.send({
+				'title': 'outro controle',
+				'description': 'responsável por acompanhar o fluxo de mercadorias da empresa.',
+                
+				'task': [
+					{
+						'title': 'desenvolver endpoint para cadastro de produto',
+						'taskRelevance': 10,
+						'completed': false
+                
+					},
+					{
+						'title': 'desenvolver endpoint para realizar a baixo do produto',
+						'taskRelevance': 10,
+						'completed': false
+                
+					}
+				]
+			});
+		expect(res.statusCode).toBe(200);
+		expect(res.body.title).toBe('outro controle');
+	});
 
-	// it('DELETE /api/v1/project/:id', async () => {
-	// 	const res = await supertest(App)
-	// 		.delete(`/api/v1/project/${project.p1._id}`);
+	it('DELETE /api/v1/project/:id', async () => {
+		const res = await supertest(App)
+			.delete(`/api/v1/project/${project.p1._id}`);
 
-	// 	expect(res.statusCode).toBe(204);
-	// });
+		expect(res.statusCode).toBe(204);
+	});
 });
