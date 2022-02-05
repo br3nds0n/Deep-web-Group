@@ -10,22 +10,18 @@ const projectSchema = mongoose.Schema({
 		type: String,
 		required: true
 	},
-	createdAt:{
-		type: Date,
-		default: Date.now
-	},
-	updatedAt:{
-		type: Date,
-		default: Date.now
-	},  
-    
-	task : {
-        type: Array,
-        required: true,
-        timestamps: true
-    }
+	task : [{
+        title : { type:String,required:true},
+        taskRelevance :{ type:Number,required:true},
+        completed :{ type:Boolean,required:true},
+        createdAt:{type:Date,default:Date.now
+        },
+        updatedAt:{type:Date,default:Date.now
+        },
+        _id:false
+         },] 
 },
-);
+{ timestamps: true });
 
 projectSchema.method('toJSON', function () {
 	const { ...Project } = this.toObject();
