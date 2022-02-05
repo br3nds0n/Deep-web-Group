@@ -5,6 +5,7 @@ const projectValidation = require('../../app/validation/projectValidation');
 
 router
 	.post('/project',projectValidation, ProjectController.create)
-	.get('/project', ProjectController.findAll);
+	.get('/project', ProjectController.findAll)
+	.get('/project/:id', ProjectController.findById );
 
 module.exports = router;

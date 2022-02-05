@@ -11,6 +11,11 @@ class ProjectService {
 		const data = await ProjectRepository.findAll(payload);
 		return data;
 	}
+
+	async findById (id) {
+		const result = await ProjectRepository.findById(id);
+		return result;
+	}
 }
 
 module.exports = new ProjectService();

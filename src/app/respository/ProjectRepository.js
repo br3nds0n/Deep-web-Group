@@ -25,7 +25,9 @@ class ProjectRepository {
 		};
 		return schema.paginate(payload,options,{});
 	}
-	
+	async findById (id) {
+		return schema.findById(id);
+	}
 }
 
 module.exports = new ProjectRepository();
