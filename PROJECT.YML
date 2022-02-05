@@ -1,0 +1,218 @@
+openapi: 3.0.1
+info:
+  title: API Compasso_Lisa
+  description: API De Tasks .
+  version: 1.0.0
+externalDocs:
+  description: Documentação
+  url: https://github.com/br3nds0n/Deep-web-Group
+servers:
+- url: http://localhost:3000/api/v1/project
+  description: Api Tasks
+paths:
+
+  /task:
+    get:
+      summary: Retorna todos as Tasks.
+      parameters:
+      - name: modelo
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: cor
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: ano
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: acessorios
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: quantidadePassageiros
+        in: query
+        schema:
+          type: number
+        required: false
+      responses:
+        200:
+          description: sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Tasks:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        modelo:
+                          type: string
+                        cor:
+                          type: string
+                        ano: 
+                          type: string
+                        acessorios:
+                          type: array
+                          items: 
+                            type: object
+                            properties:
+                              descricao:
+                                type: string
+                        quantidadePassageiros: 
+                          type: number
+        404:
+          description: Veiculo não encontrado
+          content:
+            application/json: 
+              example: "not found"
+    post: 
+      summary: Cria um novo Veiculo.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                modelo:
+                  type: string
+                cor:
+                  type: string
+                ano:
+                  type: string
+                acessorios:
+                          type: array
+                          items: 
+                            type: object
+                            properties:
+                              descricao:
+                                type: string
+                quantidadePassageiros: 
+                          type: number
+      responses: 
+        201:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  _id:
+                    type: string
+                  moddelo:
+                    type: string
+                  cor: 
+                    type: string
+                  ano:
+                    type: string
+                  acessorios:
+                          type: array
+                          items: 
+                            type: object
+                            properties:
+                              descricao:
+                                type: string
+                  quantidadePassageiros: 
+                    type: number
+
+
+        400:
+          description: Error
+          content:
+            application/json: 
+              example: "não foi possivel cadastrar um novo Veiculo"
+  /task/{task_id}:
+    put:
+      summary: Atualiza um Veiculo.
+      parameters:
+      - name: task_id
+        in: path
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                  _id:
+                    type: string
+                  moddelo:
+                    type: string
+                  cor: 
+                    type: string
+                  ano:
+                    type: string
+                  acessorios:
+                          type: array
+                          items: 
+                            type: object
+                            properties:
+                              descricao:
+                                type: string
+                  quantidadePassageiros: 
+                    type: number
+      responses: 
+        200:
+          description: Atualizado com sucesso.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                  moddelo:
+                    type: string
+                  cor: 
+                    type: string
+                  ano:
+                    type: string
+                  acessorios:
+                          type: array
+                          items: 
+                            type: object
+                            properties:
+                              descricao:
+                                type: string
+                  quantidadePassageiros: 
+                    type: number
+        404:
+          description: Funcionario não encontrado
+          content:
+            application/json: 
+              example: "não foi possivel cadastrar o funcionário"
+        400:
+          description: Body Error
+          content:
+            application/json:
+              example: "Body error"
+    delete:
+      summary: Atualiza um Veiculo.
+      parameters:
+      - name: task_id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses: 
+        204:
+          description: Excluido com sucesso
+        404:
+          description: Veiculo não encontrado
+          content:
+            application/json: 
+              example: "não foi possivel cadastrar o Veiculo"
+        400:
+          description: Body Error
+          content:
+            application/json:
+              example: "Body error"

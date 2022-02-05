@@ -38,6 +38,7 @@
   },
   "homepage": "https://github.com/br3nds0n/Deep-web-Group#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "joi": "^17.6.0",
