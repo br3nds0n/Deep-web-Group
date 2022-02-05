@@ -1,0 +1,54 @@
+{
+  "name": "DeepwebGroup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/server.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js --ignore tests",
+    "lint": "eslint . --fix",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/br3nds0n/Deep-web-Group.git"
+  },
+  "keywords": [],
+  "author": "deep-Web-Group",
+  "contributors": [
+    {
+      "name": "Brendson Victor",
+      "email": "brendson.campos_bols@compasso.com.br",
+      "url": "https://github.com/br3nds0n"
+    },
+    {
+      "name": "Italo Alves",
+      "email": "italo.alves_bols@compasso.com.br",
+      "url": "https://github.com/ItaloDavidb"
+    },
+    {
+      "name": "Matheus Lopes",
+      "email": "matheus.silva_bols@compasso.com.br",
+      "url": "https://github.com/MathLopes1"
+    }
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/br3nds0n/Deep-web-Group/issues"
+  },
+  "homepage": "https://github.com/br3nds0n/Deep-web-Group#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "joi": "^17.6.0",
+    "mongoose": "^6.2.0",
+    "mongoose-paginate-v2": "^1.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.8.0",
+    "jest": "^27.4.7",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
+  }
+}
