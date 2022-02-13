@@ -1,4 +1,4 @@
-const App = require('../database');
+const App = require('../database/index');
 const supertest = require('supertest');
 
 describe('Project-Validation', () => {
