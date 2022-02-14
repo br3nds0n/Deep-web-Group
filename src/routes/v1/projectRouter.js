@@ -6,7 +6,7 @@ const idValidation = require('../../app/validation/idValidation');
 const findQueryValidation = require('../../app/validation/project/FindQueryValidation');
 
 router
-	.post('/posts',projectValidation, ProjectController.create)
+	.post('/project',projectValidation, ProjectController.create)
 	.get('/project', findQueryValidation, ProjectController.findAll)
 	.get('/project/:id', idValidation, ProjectController.findById )
 	.put('/project/:id', idValidation, ProjectController.update)
